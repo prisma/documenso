@@ -5,12 +5,13 @@
   "types": "./index.ts",
   "license": "MIT",
   "scripts": {
-    "build": "prisma generate",
-    "prebuild": "prisma generate",
+    "build": "npm run prisma:generate-sql",
+    "prebuild": "npm run prisma:generate-sql",
     "format": "prisma format",
     "clean": "rimraf node_modules",
-    "post-install": "prisma generate",
+    "post-install": "npm run prisma:generate-sql",
     "prisma:generate": "prisma generate",
+    "prisma:generate-sql": "prisma generate --sql",
     "prisma:migrate-dev": "prisma migrate dev --skip-seed",
     "prisma:migrate-deploy": "prisma migrate deploy",
     "prisma:migrate-reset": "prisma migrate reset",
@@ -21,9 +22,9 @@
     "seed": "tsx ./seed-database.ts"
   },
   "dependencies": {
-    "@prisma/client": "5.4.2",
-    "kysely": "^0.27.3",
-    "prisma": "5.4.2",
+    "@prisma/client": "^5.19.0",
+    "kysely": "^0.27.4",
+    "prisma": "^5.19.0",
     "prisma-extension-kysely": "^2.1.0",
     "ts-pattern": "^5.0.6"
   },

@@ -1,4 +1,10 @@
 import { PrismaClient } from '@prisma/client';
+import {
+  completedDocumentsMonthly,
+  signerConversionMonthly,
+  userMonthlyGrowth,
+  userWithSignedDocumentMonthlyGrowth,
+} from '@prisma/client/sql';
 import { Kysely, PostgresAdapter, PostgresIntrospector, PostgresQueryCompiler } from 'kysely';
 import kyselyExtension from 'prisma-extension-kysely';
 
@@ -13,6 +19,13 @@ export const prisma = remember(
       datasourceUrl: getDatabaseUrl(),
     }),
 );
+
+export const SQL = {
+  completedDocumentsMonthly,
+  signerConversionMonthly,
+  userMonthlyGrowth,
+  userWithSignedDocumentMonthlyGrowth,
+};
 
 export const kyselyPrisma = remember('kyselyPrisma', () =>
   prisma.$extends(
